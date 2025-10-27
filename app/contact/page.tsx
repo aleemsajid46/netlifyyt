@@ -55,19 +55,19 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email Us",
-      details: ["hello@bloomshop.com", "support@bloomshop.com"],
+      details: ["aleemsajid46@gmail.com", "aleemsajid46@gmail.com"],
       description: "Send us an email anytime",
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+      details: ["+92-333-8816190", "+92-333-8816190"],
       description: "Mon-Fri from 8am to 5pm",
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["123 Fashion Street", "Style City, SC 12345"],
+      details: ["House Number #39 Canal Breez Ali Town Lahore Punjab"],
       description: "Come say hello at our office",
     },
     {
@@ -146,7 +146,7 @@ export default function Contact() {
                           id="name"
                           name="name"
                           type="text"
-                          placeholder="John Doe"
+                          placeholder="sajid bhai"
                           value={formData.name}
                           onChange={handleInputChange}
                           required
@@ -165,7 +165,7 @@ export default function Contact() {
                           id="email"
                           name="email"
                           type="email"
-                          placeholder="john@example.com"
+                          placeholder="aleemssajid46@gmail.com"
                           value={formData.email}
                           onChange={handleInputChange}
                           required

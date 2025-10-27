@@ -1,0 +1,190 @@
+/* === Base Styles === */
+
+/* Center the form vertically & horizontally */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f1f5f9;
+  padding: 20px; /* Prevent edge cutoffs on small screens */
+}
+
+/* Form card */
+.signup-form {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 380px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Title */
+.signup-form h2 {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Subtitle text */
+.subtitle {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Name input fields side by side */
+.name-fields {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Input fields */
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Checkbox */
+.checkbox {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.checkbox a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.checkbox a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.signup-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Text below forms */
+.login-text {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.login-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+/* Cross icon */
+.cross-sign {
+  display: inline-block;
+  width: 10%;
+  height: 10%;
+  margin-left: 300px;
+  background-color: rgb(197, 194, 189);
+}
+
+/* ===========================================================
+   📱 MEDIA QUERIES (Responsive Adjustments)
+   =========================================================== */
+
+/* For small screens (phones, max-width: 640px) */
+@media (max-width: 640px) {
+  .signup-form {
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+  }
+
+  .name-fields {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .signup-form input[type="text"],
+  .signup-form input[type="email"],
+  .signup-form input[type="password"] {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .signup-form button {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  .cross-sign {
+    margin-left: auto;
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .login-text {
+    font-size: 13px;
+  }
+}
+
+/* For tablets (641px – 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .signup-form {
+    width: 450px;
+    padding: 30px;
+  }
+
+  .signup-form input {
+    font-size: 15px;
+  }
+
+  .signup-form button {
+    font-size: 15px;
+    padding: 11px;
+  }
+}
+
+/* For large screens (desktop and above) */
+@media (min-width: 1025px) {
+  .signup-form {
+    width: 420px;
+  }
+
+  .signup-form button {
+    font-size: 16px;
+  }
+}

@@ -6,11 +6,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import AuthPage from "@/app/signup/page";
 
 export default function Header() {
   const { cart } = useCart();
-  const cartCount =
-    cart?.reduce((total, item) => total + item.quantity, 0) || 0;
+  const cartCount = cart?.reduce((total, item) => total + item.quantity, 0) || 0;
+
+  const [showLogin12, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,10 +22,7 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -50,17 +51,25 @@ export default function Header() {
           : "bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-8 lg:space-x-12">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-10 py-3 sm:py-4">
+        {/* TOP BAR */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
+          {/* LEFT SECTION */}
+          <div className="flex items-center space-x-4 sm:space-x-8 lg:space-x-12">
+            <img
+              src="/sajid.jpeg"
+              alt="sajid"
+              className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full"
+            />
             <Link
-              className="text-2xl tracking-tight text-gray-900 hover:text-gray-700 transition-colors"
+              className="text-xl sm:text-2xl tracking-tight text-gray-900 hover:text-gray-700 transition-colors"
               href="/"
               aria-label="BloomShop Home"
             >
-              BLOOM<span className="text-primary">SHOP</span>
+              MUHAMMAD<span className="text-primary">SAJID</span>
             </Link>
 
+            {/* NAVIGATION (Desktop) */}
             <nav
               className="hidden md:flex items-center space-x-1"
               role="navigation"
@@ -83,6 +92,7 @@ export default function Header() {
             </nav>
           </div>
 
+          {/* SEARCH BAR (Desktop Only) */}
           <div className="hidden lg:flex flex-1 max-w-md mx-8">
             <form className="relative w-full">
               <input
@@ -97,7 +107,9 @@ export default function Header() {
             </form>
           </div>
 
+          {/* RIGHT SECTION */}
           <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* MOBILE SEARCH BUTTON */}
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -106,6 +118,7 @@ export default function Header() {
               <Search className="h-5 w-5 text-gray-700" />
             </button>
 
+            {/* MOBILE MENU TOGGLE */}
             <button
               onClick={toggleMobileMenu}
               className="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors"
@@ -119,6 +132,7 @@ export default function Header() {
               )}
             </button>
 
+            {/* CART ICON */}
             <Link
               href="/cart"
               className="relative p-2 rounded-full hover:bg-gray-100 transition-all duration-200 group"
@@ -135,9 +149,15 @@ export default function Header() {
               )}
             </Link>
 
+            {/* AUTH BUTTONS (Hidden on small screens) */}
             <div className="hidden sm:flex items-center space-x-2">
               <Link href="/">
-                <Button variant="ghost" size="sm" className="text-sm">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-sm"
+                  onClick={() => setShowLogin(true)}
+                >
                   Sign In
                 </Button>
               </Link>
@@ -150,6 +170,12 @@ export default function Header() {
           </div>
         </div>
 
+        {/* LOGIN MODAL */}
+        {showLogin12 && (
+          <AuthPage showLogin={showLogin12} setShowLogin={setShowLogin} />
+        )}
+
+        {/* MOBILE SEARCH FIELD */}
         {isSearchOpen && (
           <div className="lg:hidden mt-4 animate-in slide-in-from-top duration-200">
             <form className="relative">
@@ -167,6 +193,7 @@ export default function Header() {
           </div>
         )}
 
+        {/* MOBILE NAVIGATION */}
         {isMobileOpen && (
           <nav
             className="md:hidden mt-4 animate-in slide-in-from-top duration-200"

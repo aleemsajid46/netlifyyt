@@ -115,9 +115,9 @@ export default function Footer() {
               <Link
                 className="text-2xl tracking-tight text-gray-900 hover:text-gray-700 transition-colors"
                 href="/"
-                aria-label="BloomShop Home"
+                aria-label="SAJID SHOP"
               >
-                BLOOM<span className="text-primary">SHOP</span>
+                MUHAMMAD<span className="text-primary">SAJID</span>
               </Link>
               <p className="text-muted-foreground mb-6 max-w-sm">
                 Discover unique products that inspire your lifestyle. Quality
@@ -127,15 +127,15 @@ export default function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <MapPin className="h-4 w-4 text-primary" />
-                  <span>123 Fashion Street, Style City, SC 12345</span>
+                  <span>House Number #39 Canal Breez Ali Town Lahore Punjab</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4 text-primary" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+92333-8816190</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4 text-primary" />
-                  <span>hello@bloomshop.com</span>
+                  <span>aleemsajid46@gmail.com</span>
                 </div>
               </div>
 
@@ -185,9 +185,9 @@ export default function Footer() {
 
         <div className="py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>© 2025 BloomShop™. Made with</span>
+            <span>MUHAMMAD ALEEM SAJID Made with</span>
             <Heart className="h-4 w-4 text-red-500 fill-current" />
-            <span>All Rights Reserved.</span>
+            <span>I AM MERN STACK DEVELOPER</span>
           </div>
 
           <div className="flex items-center gap-6 text-sm">

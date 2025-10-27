@@ -73,14 +73,14 @@ export default function ProductCard({ product }: { product: Product }) {
         </Button>
 
         <Link href={`/product/${product.id}`} className="block relative">
-          <div className="aspect-square overflow-hidden bg-muted">
+          <div className="overflow-hidden bg-muted">
             {!imageError ? (
               <Image
                 src={product.image}
                 alt={product.name}
-                width={400}
-                height={400}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                width={300}
+                height={300}
+                className="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 onError={() => setImageError(true)}
               />
             ) : (
