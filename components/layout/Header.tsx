@@ -6,14 +6,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import AuthPage from "@/app/signup/page";
+
+import Image from "next/image";
+
 
 export default function Header() {
   const { cart } = useCart();
   const cartCount = cart?.reduce((total, item) => total + item.quantity, 0) || 0;
 
-  const [showLogin12, setShowLogin] = useState(false);
-  const [showSignup, setShowSignup] = useState(false);
+  
+ 
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,15 +58,25 @@ export default function Header() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
           {/* LEFT SECTION */}
           <div className="flex items-center space-x-4 sm:space-x-8 lg:space-x-12">
-            <img
-              src="/sajid.jpeg"
-              alt="sajid"
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full"
-            />
+          <Image
+  src="/sajid.jpeg"
+  alt="Sajid"
+  width={60}
+  height={60}
+  className="
+    rounded-full
+    w-[60px] h-[60px]        // default (mobile)
+    sm:w-[60px] sm:h-[60px]  // ≥640px screens
+    md:w-[80px] md:h-[80px] // ≥768px
+    lg:w-[80px] lg:h-[80px] // ≥1024px
+  "
+/>
+
+          
             <Link
               className="text-xl sm:text-2xl tracking-tight text-gray-900 hover:text-gray-700 transition-colors"
               href="/"
-              aria-label="BloomShop Home"
+              aria-label="MUHAMMD SAJID"
             >
               MUHAMMAD<span className="text-primary">SAJID</span>
             </Link>
@@ -156,7 +168,7 @@ export default function Header() {
                   variant="ghost"
                   size="sm"
                   className="text-sm"
-                  onClick={() => setShowLogin(true)}
+                
                 >
                   Sign In
                 </Button>
@@ -171,9 +183,7 @@ export default function Header() {
         </div>
 
         {/* LOGIN MODAL */}
-        {showLogin12 && (
-          <AuthPage showLogin={showLogin12} setShowLogin={setShowLogin} />
-        )}
+       
 
         {/* MOBILE SEARCH FIELD */}
         {isSearchOpen && (
